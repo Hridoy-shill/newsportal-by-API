@@ -6,10 +6,10 @@ const loadData = () => {
 }
 
 const showData = (categories) =>{
-    console.log(categories);
+    // console.log(categories);
     const navbarContainer = document.getElementById('navbar-container');
     for(let categori of categories){
-        console.log(categori);
+        // console.log(categori);
         const div = document.createElement('div');
         div.innerHTML =`
         <a class="text-secondary nav-link" href="#" onclick="getNewsByClick('${categori.category_id}', '${categori.category_name}')">${categori.category_name}</a>
@@ -20,7 +20,7 @@ const showData = (categories) =>{
 }
 
 const getNewsByClick = (id, name) =>{
-    console.log(id, name);
+    // console.log(id, name);
     const URl = ` https://openapi.programming-hero.com/api/news/category/${id}`
     fetch(URl)
     .then(res => res.json())
@@ -31,6 +31,10 @@ const showNewsQuantity = (quantity, name) =>{
     console.log(quantity, name);
     document.getElementById('news-quantity').innerText = quantity.length
     document.getElementById('news-cetagory').innerText = name
+
+    for(let singelNews of quantity){
+        console.log(singelNews);
+    }
 }
 
 
